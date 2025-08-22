@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Titan Truths: Royal Research Portal</title>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Poppins:400,700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset + base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(135deg, #111622 0%, #3146c9 100%);
+      color: #eee;
+      font-family: 'Poppins', Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    a {
+      color: #ffe066;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* Header */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(17, 22, 34, 0.95);
+      box-shadow: 0 0 20px #ffe066aa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #ffe066;
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(255, 224, 102, 0.3);
+    }
+    .logo {
+      background: linear-gradient(90deg, #ffe066, #f7b731);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 8px #ffe066aa);
+    }
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    nav a:hover {
+      color: #f7b731;
+      background: rgba(255, 224, 102, 0.1);
+      box-shadow: 0 0 15px rgba(255, 224, 102, 0.3);
+    }
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      position: relative;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 224, 102, 0.2), transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(247, 183, 49, 0.2), transparent 50%),
+        linear-gradient(135deg, #111622 0%, #3146c9 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23glow)"><circle cx="200" cy="300" r="3" fill="%23ffe066" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/></circle><circle cx="700" cy="200" r="2" fill="%23f7b731" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="4s" repeatCount="indefinite"/></circle><circle cx="500" cy="600" r="4" fill="%23ffe066" opacity="0.7"><animate attributeName="opacity" values="0.7;0.3;0.7" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="150" cy="700" r="2" fill="%23f7b731" opacity="0.5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/></circle></g></svg>') no-repeat center center/cover;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 5rem;
+      letter-spacing: 0.15em;
+      background: linear-gradient(90deg, #ffe066, #f7b731, #ffe066);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px #ffe066aa);
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      margin-bottom: 1rem;
+    }
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px #ffe066aa); }
+      100% { filter: drop-shadow(0 0 40px #ffe066); }
+    }
+    .hero .subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #fff;
+      max-width: 700px;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #ffe066, #f7b731);
+      color: #111622;
+      font-weight: 700;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(255, 224, 102, 0.4);
+      user-select: none;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #f7b731, #ffe066);
+      box-shadow: 0 15px 50px rgba(255, 224, 102, 0.7);
+      transform: translateY(-5px) scale(1.05);
+    }
+    /* Glass panels */
+    .glass-section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 224, 102, 0.2);
+      border-radius: 25px;
+      margin: 3rem 0;
+      padding: 4rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    .glass-section:hover {
+      box-shadow: 0 25px 60px rgba(255, 224, 102, 0.2);
+      border-color: rgba(255, 224, 102, 0.4);
+    }
+    .glass-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(90deg, #ffe066, #f7b731);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(255, 224, 102, 0.5));
+      letter-spacing: 0.1em;
+    }
+    .glass-section p.lead {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      opacity: 0.9;
+      line-height: 1.7;
+      color: #fff;
+    }
+    /* Enhanced table */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, rgba(255, 224, 102, 0.1), rgba(247, 183, 49, 0.1));
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    th {
+      background: linear-gradient(135deg, #ffe066, #f7b731);
+      color: #111622;
+      font-weight: 700;
+      padding: 1.5rem;
+      text-align: left;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 1.5rem;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 224, 102, 0.2);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    tr:hover td {
+      background: rgba(255, 224, 102, 0.15);
+      color: #ffe066;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    /* Enhanced list styles */
+    .enhanced-list {
+      max-width: 900px;
+      margin: 3rem auto;
+      list-style: none;
+      padding: 0;
+    }
+    .enhanced-list li {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 224, 102, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .enhanced-list li:hover {
+      background: rgba(255, 224, 102, 0.1);
+      border-color: rgba(255, 224, 102, 0.5);
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(255, 224, 102, 0.2);
+    }
+    .enhanced-list li strong {
+      color: #ffe066;
+      font-weight: 700;
+    }
+    /* Download section */
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+      padding: 0 1rem;
+    }
+    .download-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 224, 102, 0.3);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .download-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 224, 102, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+    .download-card:hover::before {
+      animation: shimmer 1.5s ease-in-out;
+      opacity: 1;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    .download-card:hover {
+      border-color: #ffe066;
+      box-shadow: 0 20px 50px rgba(255, 224, 102, 0.3);
+      transform: translateY(-10px) scale(1.02);
+    }
+    .download-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #ffe066;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .download-card p {
+      font-size: 1.1rem;
+      color: #fff;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .download-btn {
+      background: linear-gradient(135deg, #ffe066, #f7b731);
+      color: #111622;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .download-btn:hover {
+      background: linear-gradient(135deg, #f7b731, #ffe066);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 224, 102, 0.5);
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+      nav {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .hero {
+        height: 80vh;
+        padding: 2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .hero .subtitle {
+        font-size: 1.3rem;
+      }
+      .glass-section {
+        margin: 2rem 0;
+        padding: 2rem 1rem;
+      }
+      .glass-section h2 {
+        font-size: 2.5rem;
+      }
+      .download-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .enhanced-list li {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+      }
+      th, td {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">👑 TITAN TRUTHS</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#giants">Giants</a>
+      <a href="#history">History</a>
+      <a href="#theories">Theories</a>
+      <a href="#downloads">Downloads</a>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero">
+    <h1>✧ TITAN TRUTHS ✧</h1>
+    <p class="subtitle">Royal Research Portal • Modern Wisdom • Myth Meets Science</p>
+    <p style="font-size: 1.4rem; max-width: 800px; margin-bottom: 2rem; opacity: 0.8;">
+      Explore the science behind giants, forgotten memories, myths of gods and titans, and modern genetic theory in this luxurious research portal.
+    </p>
+    <button class="btn-primary" onclick="document.getElementById('giants').scrollIntoView({behavior:'smooth'})">
+      🔍 Discover the Evidence
+    </button>
+  </section>
+
+  <div class="container">
+    <section id="giants" class="glass-section reveal">
+      <h2>🦕 Giants Through Time</h2>
+      <p class="lead">From prehistoric dinosaurs to mythological titans, giant beings have dominated Earth throughout history. Compare the evidence across time periods.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Creature</th>
+              <th>Height</th>
+              <th>Era</th>
+              <th>Source</th>
+              <th>Evidence Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Argentinosaurus</strong></td>
+              <td>30-35m</td>
+              <td>Cretaceous (100M years ago)</td>
+              <td>Fossil Record</td>
+              <td>Scientific</td>
+            </tr>
+            <tr>
+              <td><strong>Colossal Titan (AOT)</strong></td>
+              <td>60m</td>
+              <td>Fictional Present</td>
+              <td>Manga/Anime</td>
+              <td>Narrative</td>
+            </tr>
+            <tr>
+              <td><strong>Megatherium</strong></td>
+              <td>6m</td>
+              <td>Ice Age</td>
+              <td>Fossil Record</td>
+              <td>Scientific</td>
+            </tr>
+            <tr>
+              <td><strong>Biblical Nephilim</strong></td>
+              <td>3-12m</td>
+              <td>Ancient Times</td>
+              <td>Religious Texts</td>
+              <td>Mythological</td>
+            </tr>
+            <tr>
+              <td><strong>Norse Jötuns</strong></td>
+              <td>Variable</td>
+              <td>Mythological</td>
+              <td>Norse Mythology</td>
+              <td>Cultural</td>
+            </tr>
+            <tr>
+              <td><strong>Greek Titans</strong></td>
+              <td>Massive</td>
+              <td>Mythological</td>
+              <td>Greek Mythology</td>
+              <td>Cultural</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="history" class="glass-section reveal">
+      <h2>📜 Historical Evidence</h2>
+      <p class="lead">Documented parallels between real-world historical events and the Attack on Titan narrative reveal striking connections.</p>
+      
+      <ul class="enhanced-list">
+        <li>
+          <strong>🏛️ Nördlingen, Germany:</strong> Built within a 15-million-year-old meteor crater, this perfectly preserved medieval walled city served as the direct architectural inspiration for Shiganshina District, complete with red roofs and central cathedral spire.
+        </li>
+        <li>
+          <strong>✡️ Holocaust Parallels:</strong> Eldian identification armbands directly mirror Nazi-mandated Jewish badges. The Liberio internment zone, systematic oppression, and anti-Eldian propaganda precisely match documented Holocaust persecution methods from 1933-1945.
+        </li>
+        <li>
+          <strong>🏰 Medieval European Culture:</strong> Character names (Eren, Reiner, Historia), military structures, architectural styles, and cultural ceremonies throughout AOT systematically correspond to documented Germanic and medieval European historical patterns.
+        </li>
+        <li>
+          <strong>🗾 Japanese Imperial History:</strong> The isolationist wall system mirrors Japan's historical Sakoku period (1633-1853), while military organization and surprise attack strategies reflect WWII Japanese imperial military actions.
+        </li>
+        <li>
+          <strong>📚 Creator Documentation:</strong> Hajime Isayama has explicitly acknowledged drawing inspiration from WWII films, European medieval architecture research, and his hometown's mountain-surrounded geography for the wall concept.
+        </li>
+      </ul>
+    </section>
+
+    <section id="theories" class="glass-section reveal">
+      <h2>🛸 Ancient Intervention Theory</h2>
+      <p class="lead">What if advanced beings created Titans through forgotten technologies, as suggested by unexplained ancient monuments and modern genetic engineering capabilities?</p>
+      
+      <ul class="enhanced-list">
+        <li>
+          <strong>🧬 Genetic Engineering Evidence:</strong> Modern CRISPR technology proves large-scale genetic modification is possible. Ancient aliens or gods with advanced biotechnology could have created Titans through genetic manipulation, mirroring AOT's Titan serum injections.
+        </li>
+        <li>
+          <strong>🏺 Pyramid Connection Theory:</strong> Unexplained precision in ancient structures like Egyptian pyramids, Puma Punku, and Göbekli Tepe suggests advanced lost knowledge. The same beings who built these monuments might have engineered giant humanoids as weapons or labor force.
+        </li>
+        <li>
+          <strong>🧠 Collective Memory Erasure:</strong> The Founding Titan's memory manipulation power parallels documented historical information control and collective amnesia following disasters. Our potential "forgetting" of Giants' existence could explain why they exist only in myths today.
+        </li>
+        <li>
+          <strong>💭 Creator's Dream Theory:</strong> Hajime Isayama's inspiration from dreams and anxiety might represent collective unconscious memory accessing real historical events. Carl Jung's theories suggest universal mythological patterns could preserve actual memories across generations.
+        </li>
+        <li>
+          <strong>🌍 Geographic Anomalies:</strong> The Nördlingen meteor crater that inspired AOT suggests cosmic intervention in Earth's history. Ancient impact events could have brought alien technology or awakened dormant genetic programs in early humans.
+        </li>
+        <li>
+          <strong>📖 Mythological Consistency:</strong> Giant humanoid legends appear independently across all human cultures (Norse Jötuns, Biblical Nephilim, Greek Titans, Hindu Rakshasas), suggesting shared historical experience rather than coincidental fiction.
+        </li>
+      </ul>
+    </section>
+
+    <section id="downloads" class="glass-section reveal">
+      <h2>📁 Royal Research Archive</h2>
+      <p class="lead">Access the complete academic research documentation proving Attack on Titan's connections to historical reality, formatted for scholarly analysis.</p>
+      
+      <div class="download-grid">
+        <div class="download-card">
+          <h3>📄 Complete Research Paper</h3>
+          <p>Comprehensive 15,000-word academic analysis with historical parallels, geographic evidence, creator documentation, and scientific methodology.</p>
+          <a href="#" class="download-btn" onclick="alert('📄 Downloading: The Empirical Reality of Attack on Titan - Complete Research Paper (PDF)')">Download PDF</a>
+        </div>
+        
+        <div class="download-card">
+          <h3>📊 Historical Data Archive</h3>
+          <p>Structured CSV databases containing documented historical parallels, real-world locations, and comparative analysis data for independent research.</p>
+          <a href="#" class="download-btn" onclick="alert('📊 Downloading: Historical Parallels Database (CSV Files)')">Download CSV</a>
+        </div>
+        
+        <div class="download-card">
+          <h3>🎯 Creator Documentation</h3>
+          <p>Compiled interviews, statements, and quotes from Hajime Isayama revealing his research methodology and inspiration sources with citations.</p>
+          <a href="#" class="download-btn" onclick="alert('🎯 Downloading: Creator Statements and Inspiration Sources (TXT)')">Download Quotes</a>
+        </div>
+        
+        <div class="download-card">
+          <h3>🗺️ Geographic Evidence Pack</h3>
+          <p>High-resolution maps, architectural photos, and comparative images between real locations (Nördlingen, Carcassonne) and Attack on Titan settings.</p>
+          <a href="#" class="download-btn" onclick="alert('🗺️ Downloading: Geographic Evidence and Location Comparisons (ZIP)')">Download Maps</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer style="background: rgba(17, 22, 34, 0.95); padding: 4rem 2rem; text-align: center; margin-top: 4rem; border-top: 2px solid rgba(255, 224, 102, 0.3);">
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #ffe066; margin-bottom: 1rem;">👑 Titan Truths Research Project</h3>
+    <p style="font-size: 1.2rem; opacity: 0.8; max-width: 600px; margin: 0 auto;">
+      Uncovering the empirical reality behind Attack on Titan through comprehensive scientific analysis, historical research, and evidence-based investigation.
+    </p>
+    <p style="margin-top: 2rem; opacity: 0.6; font-size: 1rem;">
+      Research compiled August 2025 • Evidence-based scholarly investigation • For academic and educational purposes
+    </p>
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    function revealElements() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      const elementVisible = 150;
+
+      reveals.forEach(reveal => {
+        const elementTop = reveal.getBoundingClientRect().top;
+        if (elementTop < windowHeight - elementVisible) {
+          reveal.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealElements);
+    
+    // Initial reveal check
+    revealElements();
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Enhanced hover effects for list items
+    document.querySelectorAll('.enhanced-list li').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.background = 'rgba(255, 224, 102, 0.15)';
+        this.style.boxShadow = '0 15px 40px rgba(255, 224, 102, 0.3)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.background = 'rgba(255, 255, 255, 0.05)';
+        this.style.boxShadow = 'none';
+      });
+    });
+
+    // Dynamic background particles (subtle enhancement)
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.style.position = 'fixed';
+      particle.style.width = '2px';
+      particle.style.height = '2px';
+      particle.style.background = '#ffe066';
+      particle.style.borderRadius = '50%';
+      particle.style.pointerEvents = 'none';
+      particle.style.zIndex = '1';
+      particle.style.opacity = '0.6';
+      particle.style.left = Math.random() * window.innerWidth + 'px';
+      particle.style.top = window.innerHeight + 'px';
+      
+      document.body.appendChild(particle);
+      
+      const duration = Math.random() * 3000 + 2000;
+      const size = Math.random() * 3 + 1;
+      
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      
+      particle.animate([
+        { transform: 'translateY(0px)', opacity: 0.6 },
+        { transform: `translateY(-${window.innerHeight + 100}px)`, opacity: 0 }
+      ], {
+        duration: duration,
+        easing: 'ease-out'
+      }).onfinish = () => {
+        if (document.body.contains(particle)) {
+          document.body.removeChild(particle);
+        }
+      };
+    }
+
+    // Create particles periodically
+    setInterval(createParticle, 3000);
+
+    console.log('👑 Titan Truths Research Portal loaded successfully');
+    console.log('🔬 Royal research interface initialized');
+  </script>
+</body>
+</html>
