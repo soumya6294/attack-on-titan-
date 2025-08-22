@@ -3,760 +3,403 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🕵️‍♂️ TITAN NEXUS: Advanced Detective Interface</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <title>📋 Titan Investigation: The Evidence Files</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    /* Advanced CSS Variables */
+    /* Elegant Color Palette */
     :root {
-      --cyber-blue: #00ffff;
-      --neon-green: #39ff14;
-      --electric-purple: #8a2be2;
-      --hologram-gold: #ffd700;
-      --danger-red: #ff073a;
-      --matrix-green: #00ff41;
-      --deep-black: #0a0a0a;
-      --carbon-gray: #1a1a1a;
-      --steel-blue: #2c3e50;
-      --plasma-pink: #ff1493;
+      --primary-navy: #1a2332;
+      --secondary-navy: #2d3748;
+      --accent-gold: #d69e2e;
+      --warm-gold: #f6e05e;
+      --soft-white: #f7fafc;
+      --text-gray: #718096;
+      --light-gray: #e2e8f0;
+      --success-green: #38a169;
+      --warning-orange: #ed8936;
+      --error-red: #e53e3e;
+      --subtle-blue: #4299e1;
     }
 
-    /* Enhanced Reset */
+    /* Reset & Base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html {
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+      color: var(--soft-white);
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Rajdhani', sans-serif;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 90%, rgba(255, 7, 58, 0.08) 0%, transparent 50%),
-        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2c3e50 100%);
-      color: #ffffff;
-      min-height: 100vh;
-      overflow-x: hidden;
-      perspective: 1500px;
-      position: relative;
-    }
-
-    /* Matrix Digital Rain Effect */
-    .matrix-rain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.1;
-    }
-
-    .matrix-column {
-      position: absolute;
-      top: -100px;
-      color: var(--matrix-green);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 14px;
-      line-height: 14px;
-      animation: matrixFall linear infinite;
-    }
-
-    @keyframes matrixFall {
-      0% { transform: translateY(-100px); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-
-    /* Advanced Particle System */
-    .quantum-particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .quantum-particle {
-      position: absolute;
-      border-radius: 50%;
-      animation: quantumFloat 8s infinite ease-in-out;
-    }
-
-    @keyframes quantumFloat {
-      0%, 100% { 
-        transform: translateY(0px) translateX(0px) scale(1) rotateZ(0deg); 
-        opacity: 0.3; 
-      }
-      25% { 
-        transform: translateY(-30px) translateX(20px) scale(1.2) rotateZ(90deg); 
-        opacity: 0.8; 
-      }
-      50% { 
-        transform: translateY(-60px) translateX(-10px) scale(0.8) rotateZ(180deg); 
-        opacity: 1; 
-      }
-      75% { 
-        transform: translateY(-20px) translateX(-30px) scale(1.1) rotateZ(270deg); 
-        opacity: 0.6; 
-      }
-    }
-
-    /* Holographic Header */
-    .holo-header {
+    /* Navigation */
+    .nav-header {
       position: fixed;
       top: 0;
       width: 100%;
+      background: rgba(26, 35, 50, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(214, 158, 46, 0.2);
       z-index: 1000;
-      background: 
-        linear-gradient(135deg, 
-          rgba(0, 0, 0, 0.95) 0%, 
-          rgba(44, 62, 80, 0.9) 50%, 
-          rgba(26, 26, 26, 0.95) 100%
-        );
-      backdrop-filter: blur(20px) saturate(180%) hue-rotate(15deg);
-      border-bottom: 3px solid transparent;
-      border-image: linear-gradient(90deg, 
-        var(--cyber-blue), 
-        var(--electric-purple), 
-        var(--hologram-gold), 
-        var(--plasma-pink),
-        var(--cyber-blue)
-      ) 1;
-      box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.8),
-        0 0 60px rgba(0, 255, 255, 0.3),
-        inset 0 2px 10px rgba(255, 255, 255, 0.1);
-      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    .holo-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.05) 49%, rgba(255, 255, 255, 0.05) 51%, transparent 52%);
-      animation: holoScan 4s linear infinite;
-    }
-
-    @keyframes holoScan {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      transition: all 0.3s ease;
     }
 
     .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 3rem;
-      position: relative;
-    }
-
-    .cyber-logo {
-      font-family: 'Orbitron', monospace;
-      font-weight: 900;
-      font-size: 2.5rem;
-      background: linear-gradient(45deg, 
-        var(--cyber-blue), 
-        var(--electric-purple), 
-        var(--hologram-gold)
-      );
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: logoFlow 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8));
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      position: relative;
-    }
-
-    .cyber-logo::before {
-      content: '◦ ';
-      color: var(--danger-red);
-      animation: logoPulse 2s ease-in-out infinite;
-    }
-
-    .cyber-logo::after {
-      content: ' ◦';
-      color: var(--neon-green);
-      animation: logoPulse 2s ease-in-out infinite reverse;
-    }
-
-    @keyframes logoFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    @keyframes logoPulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
-
-    .holo-nav {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .holo-nav a {
-      color: var(--cyber-blue);
-      text-decoration: none;
-      font-family: 'Exo 2', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
       padding: 1rem 2rem;
-      border-radius: 30px;
-      background: linear-gradient(135deg, 
-        rgba(0, 255, 255, 0.1), 
-        rgba(138, 43, 226, 0.1)
-      );
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
 
-    .holo-nav a::before {
+    .logo {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: var(--warm-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--soft-white);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
-        transparent
-      );
-      transition: left 0.6s ease;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
 
-    .holo-nav a:hover {
-      color: var(--deep-black);
-      background: linear-gradient(135deg, var(--cyber-blue), var(--electric-purple));
-      border-color: var(--hologram-gold);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 
-        0 15px 40px rgba(0, 255, 255, 0.4),
-        0 0 60px rgba(138, 43, 226, 0.3);
+    .nav-links a:hover::before {
+      width: 80%;
     }
 
-    .holo-nav a:hover::before {
-      left: 100%;
+    .nav-links a:hover {
+      color: var(--accent-gold);
     }
 
-    /* Immersive Hero Section */
-    .nexus-hero {
-      height: 100vh;
+    /* Hero Section - The Story Begins */
+    .hero {
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       position: relative;
       background: 
-        radial-gradient(ellipse at center, rgba(138, 43, 226, 0.2) 0%, transparent 70%),
-        radial-gradient(ellipse at 80% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 20% 80%, rgba(255, 7, 58, 0.1) 0%, transparent 60%);
-      overflow: hidden;
+        radial-gradient(circle at 30% 70%, rgba(214, 158, 46, 0.1) 0%, transparent 50%),
+        var(--primary-navy);
     }
 
-    /* Holographic Evidence Board */
-    .evidence-hologram {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.15;
+    .hero-content {
+      max-width: 900px;
+      padding: 0 2rem;
+      animation: fadeInUp 1s ease-out;
     }
 
-    .evidence-pin {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: var(--danger-red);
-      border-radius: 50%;
-      animation: pinPulse 3s ease-in-out infinite;
-      box-shadow: 0 0 20px var(--danger-red);
-    }
-
-    .evidence-pin::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 2px;
-      height: 200px;
-      background: var(--danger-red);
-      transform: translate(-50%, -50%) rotate(var(--rotation, 45deg));
-      opacity: 0.6;
-      animation: threadGlow 4s ease-in-out infinite;
-    }
-
-    @keyframes pinPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 20px var(--danger-red); }
-      50% { transform: scale(1.3); box-shadow: 0 0 40px var(--danger-red); }
-    }
-
-    @keyframes threadGlow {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-
-    /* Advanced Title System */
-    .nexus-title {
-      font-family: 'Orbitron', monospace;
-      font-weight: 900;
-      font-size: 6rem;
-      letter-spacing: 0.3em;
-      margin-bottom: 2rem;
-      position: relative;
-      background: linear-gradient(45deg, 
-        var(--cyber-blue), 
-        var(--electric-purple), 
-        var(--hologram-gold), 
-        var(--plasma-pink)
-      );
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: titlePulse 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 50px rgba(0, 255, 255, 0.8));
-      text-transform: uppercase;
-    }
-
-    .nexus-title::before {
-      content: 'CLASSIFIED';
-      position: absolute;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.2rem;
-      font-family: 'Share Tech Mono', monospace;
-      color: var(--danger-red);
-      font-weight: 700;
-      letter-spacing: 0.5em;
-      animation: classifiedFlicker 1.5s ease-in-out infinite alternate;
-      border: 2px solid var(--danger-red);
-      padding: 0.5rem 2rem;
-      background: rgba(255, 7, 58, 0.1);
-    }
-
-    @keyframes titlePulse {
-      0%, 100% { 
-        background-position: 0% 50%;
-        filter: drop-shadow(0 0 50px rgba(0, 255, 255, 0.8));
-      }
-      25% { 
-        background-position: 100% 50%;
-        filter: drop-shadow(0 0 60px rgba(138, 43, 226, 0.8));
-      }
-      50% { 
-        background-position: 200% 50%;
-        filter: drop-shadow(0 0 70px rgba(255, 215, 0, 0.8));
-      }
-      75% { 
-        background-position: 300% 50%;
-        filter: drop-shadow(0 0 60px rgba(255, 20, 147, 0.8));
-      }
-    }
-
-    @keyframes classifiedFlicker {
-      0% { opacity: 0.7; color: var(--danger-red); }
-      100% { opacity: 1; color: var(--plasma-pink); }
-    }
-
-    .nexus-subtitle {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 2rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 1000px;
-      margin-bottom: 3rem;
-      text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-      position: relative;
-    }
-
-    .nexus-subtitle span {
+    .hero-badge {
       display: inline-block;
-      opacity: 0;
-      animation: typeWriter 0.1s ease-in-out forwards;
-    }
-
-    @keyframes typeWriter {
-      to { opacity: 1; }
-    }
-
-    /* Quantum Access Button */
-    .quantum-access {
-      background: linear-gradient(135deg, 
-        var(--electric-purple), 
-        var(--danger-red), 
-        var(--cyber-blue)
-      );
-      background-size: 200% 200%;
-      color: white;
-      font-family: 'Orbitron', monospace;
-      font-weight: 700;
-      font-size: 1.6rem;
-      padding: 2rem 4rem;
-      border: none;
+      background: rgba(214, 158, 46, 0.1);
+      color: var(--accent-gold);
+      padding: 0.5rem 1.5rem;
       border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      box-shadow: 
-        0 20px 60px rgba(138, 43, 226, 0.4),
-        0 0 80px rgba(255, 7, 58, 0.3),
-        inset 0 2px 10px rgba(255, 255, 255, 0.2);
-      animation: quantumPulse 3s ease-in-out infinite;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(214, 158, 46, 0.3);
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .quantum-access::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.3), 
-        transparent
-      );
-      transition: left 0.8s ease;
+    .hero h1 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--soft-white);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
     }
 
-    .quantum-access::after {
-      content: '◦◦◦';
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--neon-green);
-      animation: dotsFlow 2s ease-in-out infinite;
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    @keyframes quantumPulse {
-      0%, 100% { 
-        background-position: 0% 50%;
-        transform: scale(1);
-      }
-      50% { 
-        background-position: 100% 50%;
-        transform: scale(1.05);
-      }
+    .cta-button {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      font-weight: 600;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(214, 158, 46, 0.3);
     }
 
-    @keyframes dotsFlow {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+    .cta-button:hover {
+      background: var(--warm-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(214, 158, 46, 0.4);
     }
 
-    .quantum-access:hover {
-      background-position: 100% 50%;
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 
-        0 30px 80px rgba(138, 43, 226, 0.6),
-        0 0 120px rgba(255, 7, 58, 0.5),
-        inset 0 3px 15px rgba(255, 255, 255, 0.3);
-    }
-
-    .quantum-access:hover::before {
-      left: 100%;
-    }
-
-    /* Advanced Investigation Sections */
-    .nexus-section {
-      padding: 8rem 3rem;
-      position: relative;
-      background: 
-        linear-gradient(135deg, 
-          rgba(0, 0, 0, 0.8) 0%, 
-          rgba(44, 62, 80, 0.6) 50%, 
-          rgba(26, 26, 26, 0.8) 100%
-        );
-      margin: 4rem 0;
-      border-radius: 30px;
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 3px solid transparent;
-      border-image: linear-gradient(45deg, 
-        var(--cyber-blue), 
-        transparent, 
-        var(--electric-purple), 
-        transparent,
-        var(--hologram-gold)
-      ) 1;
-      box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.5),
-        0 0 100px rgba(0, 255, 255, 0.2),
-        inset 0 3px 15px rgba(255, 255, 255, 0.1);
-      transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-      overflow: hidden;
-    }
-
-    .nexus-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, 
-        transparent, 
-        rgba(0, 255, 255, 0.05), 
-        transparent,
-        rgba(138, 43, 226, 0.05),
-        transparent
-      );
-      transform: rotate(45deg);
-      animation: sectionScan 10s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes sectionScan {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    .nexus-section:hover {
-      transform: perspective(1000px) rotateX(-2deg) rotateY(2deg) translateZ(20px);
-      box-shadow: 
-        0 40px 120px rgba(0, 0, 0, 0.6),
-        0 0 150px rgba(0, 255, 255, 0.4),
-        inset 0 5px 25px rgba(255, 255, 255, 0.2);
+    /* Story Sections */
+    .story-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 5rem;
-      position: relative;
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .section-number {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
     }
 
     .section-title {
-      font-family: 'Orbitron', monospace;
-      font-weight: 900;
-      font-size: 4rem;
-      background: linear-gradient(45deg, 
-        var(--cyber-blue), 
-        var(--electric-purple)
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.6));
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--soft-white);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Story Cards */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .story-card {
+      background: rgba(45, 55, 72, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(214, 158, 46, 0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: all 0.4s ease;
       position: relative;
-    }
-
-    .section-title::before {
-      content: '■ ';
-      color: var(--danger-red);
-      font-size: 0.8em;
-    }
-
-    .section-title::after {
-      content: ' ■';
-      color: var(--neon-green);
-      font-size: 0.8em;
-    }
-
-    /* Holographic Data Table */
-    .holo-table-container {
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 25px;
       overflow: hidden;
-      box-shadow: 
-        0 30px 70px rgba(0, 0, 0, 0.6),
-        inset 0 2px 10px rgba(0, 255, 255, 0.3);
-      border: 2px solid var(--cyber-blue);
-      position: relative;
     }
 
-    .holo-table-container::before {
+    .story-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.1) 49%, rgba(0, 255, 255, 0.1) 51%, transparent 52%);
-      animation: tableScan 6s linear infinite;
-      pointer-events: none;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--warm-gold));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
 
-    @keyframes tableScan {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+    .story-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .holo-table {
+    .story-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .card-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--soft-white);
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      color: var(--text-gray);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .evidence-tag {
+      display: inline-block;
+      background: rgba(67, 153, 225, 0.2);
+      color: var(--subtle-blue);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .evidence-tag.verified {
+      background: rgba(56, 161, 105, 0.2);
+      color: var(--success-green);
+    }
+
+    .evidence-tag.investigating {
+      background: rgba(237, 137, 54, 0.2);
+      color: var(--warning-orange);
+    }
+
+    .evidence-tag.classified {
+      background: rgba(229, 62, 62, 0.2);
+      color: var(--error-red);
+    }
+
+    /* Elegant Table */
+    .evidence-table {
+      background: rgba(45, 55, 72, 0.4);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(214, 158, 46, 0.2);
+      margin: 3rem 0;
+    }
+
+    .table-header {
+      background: rgba(214, 158, 46, 0.1);
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(214, 158, 46, 0.2);
+    }
+
+    .table-header h3 {
+      font-family: 'Crimson Pro', serif;
+      color: var(--accent-gold);
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    table {
       width: 100%;
       border-collapse: collapse;
-      font-family: 'Share Tech Mono', monospace;
-      position: relative;
     }
 
-    .holo-table th {
-      background: linear-gradient(135deg, var(--electric-purple), var(--danger-red));
-      color: white;
-      font-weight: 700;
-      padding: 2rem;
+    th, td {
+      padding: 1.5rem 2rem;
       text-align: left;
-      font-size: 1.1rem;
-      letter-spacing: 0.1em;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+    }
+
+    th {
+      background: rgba(26, 35, 50, 0.6);
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      position: relative;
-      border-bottom: 3px solid var(--cyber-blue);
+      letter-spacing: 0.05em;
     }
 
-    .holo-table th::after {
+    td {
+      color: var(--soft-white);
+      transition: all 0.3s ease;
+    }
+
+    tr:hover td {
+      background: rgba(214, 158, 46, 0.05);
+      color: var(--warm-gold);
+    }
+
+    tr:hover td:first-child {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    /* Timeline - Story Flow */
+    .timeline {
+      position: relative;
+      margin: 4rem 0;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
       content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--cyber-blue), var(--neon-green));
-      animation: headerGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes headerGlow {
-      0%, 100% { box-shadow: 0 0 10px var(--cyber-blue); }
-      50% { box-shadow: 0 0 20px var(--neon-green); }
-    }
-
-    .holo-table td {
-      padding: 2rem;
-      color: #ffffff;
-      border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-      font-size: 1.1rem;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      background: rgba(0, 0, 0, 0.3);
-    }
-
-    .holo-table tr:hover td {
-      background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(138, 43, 226, 0.15));
-      color: var(--cyber-blue);
-      transform: translateX(15px) scale(1.02);
-      box-shadow: inset 8px 0 0 var(--electric-purple);
-    }
-
-    .holo-table tr:hover td:first-child {
-      font-weight: 700;
-      color: var(--hologram-gold);
-    }
-
-    /* Quantum Timeline */
-    .quantum-timeline {
-      position: relative;
-      margin: 6rem 0;
-      padding: 3rem 0;
-    }
-
-    .timeline-core {
       position: absolute;
       left: 50%;
       top: 0;
       bottom: 0;
-      width: 6px;
-      background: linear-gradient(180deg, 
-        var(--cyber-blue), 
-        var(--electric-purple), 
-        var(--hologram-gold), 
-        var(--danger-red)
-      );
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-gold), var(--warm-gold));
       transform: translateX(-50%);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-      border-radius: 3px;
     }
 
-    .timeline-event {
+    .timeline-item {
       position: relative;
-      margin: 6rem 0;
+      margin: 3rem 0;
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out forwards;
     }
 
-    .timeline-event.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .timeline-card {
-      width: 45%;
-      background: linear-gradient(135deg, 
-        rgba(0, 255, 255, 0.1), 
-        rgba(138, 43, 226, 0.1)
-      );
-      backdrop-filter: blur(15px);
-      border: 2px solid var(--cyber-blue);
-      border-radius: 25px;
-      padding: 3rem;
-      box-shadow: 
-        0 25px 60px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(0, 255, 255, 0.3);
-      transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline-event:nth-child(odd) .timeline-card {
-      margin-left: 0;
-      border-color: var(--electric-purple);
-    }
-
-    .timeline-event:nth-child(even) .timeline-card {
+    .timeline-item:nth-child(even) .timeline-content {
       margin-left: 55%;
-      border-color: var(--danger-red);
     }
 
-    .timeline-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.1), 
-        transparent
-      );
-      transition: left 0.8s ease;
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: 55%;
     }
 
-    .timeline-card:hover {
-      transform: perspective(800px) rotateY(5deg) translateZ(30px);
-      box-shadow: 
-        0 40px 100px rgba(0, 0, 0, 0.5),
-        0 0 120px rgba(0, 255, 255, 0.5);
-      border-color: var(--hologram-gold);
-    }
-
-    .timeline-card:hover::before {
-      left: 100%;
+    .timeline-content {
+      background: rgba(45, 55, 72, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(214, 158, 46, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
     }
 
     .timeline-marker {
@@ -764,786 +407,639 @@
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 25px;
-      height: 25px;
-      background: radial-gradient(circle, var(--hologram-gold), var(--electric-purple));
+      width: 16px;
+      height: 16px;
+      background: var(--accent-gold);
       border-radius: 50%;
-      border: 5px solid var(--deep-black);
-      box-shadow: 
-        0 0 40px var(--hologram-gold),
-        inset 0 0 15px rgba(255, 255, 255, 0.3);
+      border: 4px solid var(--primary-navy);
+      box-shadow: 0 0 0 4px rgba(214, 158, 46, 0.3);
       z-index: 10;
-      animation: markerQuantum 4s ease-in-out infinite;
     }
 
-    @keyframes markerQuantum {
-      0%, 100% { 
-        transform: translate(-50%, -50%) scale(1) rotateZ(0deg); 
-        box-shadow: 0 0 40px var(--hologram-gold);
-      }
-      25% { 
-        transform: translate(-50%, -50%) scale(1.3) rotateZ(90deg); 
-        box-shadow: 0 0 60px var(--cyber-blue);
-      }
-      50% { 
-        transform: translate(-50%, -50%) scale(1.1) rotateZ(180deg); 
-        box-shadow: 0 0 50px var(--electric-purple);
-      }
-      75% { 
-        transform: translate(-50%, -50%) scale(1.2) rotateZ(270deg); 
-        box-shadow: 0 0 55px var(--danger-red);
-      }
+    .timeline-date {
+      color: var(--accent-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* Advanced Evidence Vault */
-    .evidence-vault {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 3rem;
-      margin: 6rem 0;
+    .timeline-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.3rem;
+      color: var(--soft-white);
+      margin-bottom: 1rem;
     }
 
-    .evidence-container {
-      background: linear-gradient(135deg, 
-        rgba(255, 7, 58, 0.1), 
-        rgba(138, 43, 226, 0.1)
-      );
-      backdrop-filter: blur(20px);
-      border: 3px solid transparent;
-      border-image: linear-gradient(45deg, 
-        var(--danger-red), 
-        transparent, 
-        var(--electric-purple)
-      ) 1;
-      border-radius: 25px;
-      padding: 3rem;
+    .timeline-description {
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* Download Section */
+    .download-section {
+      background: rgba(45, 55, 72, 0.3);
+      border-radius: 20px;
+      padding: 4rem 3rem;
       text-align: center;
-      transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
+      border: 1px solid rgba(214, 158, 46, 0.2);
+      margin: 4rem 0;
     }
 
-    .evidence-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.15), 
-        transparent
-      );
-      transition: left 1s ease;
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
     }
 
-    .evidence-container:hover {
-      transform: perspective(800px) rotateX(-5deg) rotateY(10deg) translateZ(40px);
-      box-shadow: 
-        0 40px 100px rgba(0, 0, 0, 0.5),
-        0 0 150px rgba(255, 7, 58, 0.4);
-      border-image: linear-gradient(45deg, 
-        var(--hologram-gold), 
-        var(--cyber-blue), 
-        var(--hologram-gold)
-      ) 1;
+    .download-card {
+      background: rgba(26, 35, 50, 0.6);
+      border: 1px solid rgba(214, 158, 46, 0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      text-align: center;
     }
 
-    .evidence-container:hover::before {
-      left: 100%;
+    .download-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .evidence-icon {
-      font-size: 5rem;
-      margin-bottom: 2rem;
-      display: block;
-      animation: evidenceFloat 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 20px currentColor);
+    .download-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-gold);
     }
 
-    @keyframes evidenceFloat {
-      0%, 100% { 
-        transform: translateY(0px) rotateZ(0deg) scale(1); 
-      }
-      25% { 
-        transform: translateY(-15px) rotateZ(5deg) scale(1.1); 
-      }
-      50% { 
-        transform: translateY(-25px) rotateZ(-5deg) scale(1.05); 
-      }
-      75% { 
-        transform: translateY(-10px) rotateZ(3deg) scale(1.08); 
-      }
+    .download-title {
+      font-weight: 600;
+      color: var(--soft-white);
+      margin-bottom: 0.5rem;
     }
 
-    .evidence-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 1.8rem;
-      color: var(--cyber-blue);
+    .download-size {
+      font-size: 0.9rem;
+      color: var(--text-gray);
       margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
 
-    .quantum-download {
-      background: linear-gradient(135deg, var(--danger-red), var(--electric-purple));
-      color: white;
-      font-family: 'Orbitron', monospace;
-      font-weight: 700;
-      padding: 1.5rem 3rem;
+    .download-btn {
+      background: var(--accent-gold);
+      color: var(--primary-navy);
+      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 50px;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 1rem;
-      margin-top: 2rem;
-      box-shadow: 0 15px 40px rgba(255, 7, 58, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .quantum-download:hover {
-      background: linear-gradient(135deg, var(--electric-purple), var(--danger-red));
-      transform: translateY(-3px) scale(1.08);
-      box-shadow: 0 25px 60px rgba(138, 43, 226, 0.6);
+    .download-btn:hover {
+      background: var(--warm-gold);
+      transform: translateY(-2px);
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .nexus-title { font-size: 3.5rem; }
-      .nav-container { flex-direction: column; gap: 2rem; padding: 1rem; }
-      .holo-nav { flex-wrap: wrap; gap: 1rem; }
-      .timeline-card { width: 90%; margin-left: 5% !important; }
-      .timeline-core { display: none; }
-      .evidence-vault { grid-template-columns: 1fr; }
-      .nexus-section { padding: 4rem 2rem; }
+    /* Footer */
+    .footer {
+      background: var(--primary-navy);
+      border-top: 1px solid rgba(214, 158, 46, 0.2);
+      padding: 3rem 2rem 2rem;
+      text-align: center;
     }
 
-    /* Scroll Reveal System */
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer h3 {
+      font-family: 'Crimson Pro', serif;
+      color: var(--accent-gold);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer p {
+      color: var(--text-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(214, 158, 46, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(214, 158, 46, 0);
+      }
+    }
+
+    /* Scroll Reveal */
     .reveal {
       opacity: 0;
-      transform: perspective(800px) rotateX(30deg) translateY(80px);
-      transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
     }
 
     .reveal.active {
       opacity: 1;
-      transform: perspective(800px) rotateX(0deg) translateY(0px);
+      transform: translateY(0);
     }
 
-    /* Quantum Footer */
-    .quantum-footer {
-      background: linear-gradient(135deg, 
-        rgba(0, 0, 0, 0.98) 0%, 
-        rgba(44, 62, 80, 0.95) 50%, 
-        rgba(26, 26, 26, 0.98) 100%
-      );
-      padding: 6rem 3rem;
-      text-align: center;
-      margin-top: 6rem;
-      border-top: 5px solid transparent;
-      border-image: linear-gradient(90deg, 
-        var(--cyber-blue), 
-        var(--electric-purple), 
-        var(--hologram-gold), 
-        var(--danger-red)
-      ) 1;
-      position: relative;
-      overflow: hidden;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .story-section {
+        padding: 4rem 1rem;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content,
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: 60px;
+        margin-right: 0;
+      }
+
+      .timeline-marker {
+        left: 20px;
+      }
+
+      .download-section {
+        padding: 3rem 2rem;
+      }
+
+      th, td {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
     }
 
-    .quantum-footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, 
-        var(--cyber-blue), 
-        var(--electric-purple), 
-        var(--hologram-gold), 
-        var(--danger-red)
-      );
-      animation: footerPulse 4s linear infinite;
+    /* Smooth scroll behavior */
+    html {
+      scroll-padding-top: 80px;
     }
 
-    @keyframes footerPulse {
-      0% { filter: brightness(1) saturate(1); }
-      25% { filter: brightness(1.5) saturate(1.5); }
-      50% { filter: brightness(2) saturate(2); }
-      75% { filter: brightness(1.5) saturate(1.5); }
-      100% { filter: brightness(1) saturate(1); }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
 
-    .footer-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 3rem;
-      background: linear-gradient(45deg, var(--cyber-blue), var(--hologram-gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.5));
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
+    ::-webkit-scrollbar-track {
+      background: var(--primary-navy);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--warm-gold);
     }
   </style>
 </head>
 <body>
-  <!-- Matrix Digital Rain -->
-  <div class="matrix-rain" id="matrixRain"></div>
-  
-  <!-- Quantum Particles -->
-  <div class="quantum-particles" id="quantumParticles"></div>
-
-  <!-- Holographic Header -->
-  <header class="holo-header">
+  <!-- Navigation -->
+  <nav class="nav-header">
     <div class="nav-container">
-      <div class="cyber-logo">TITAN NEXUS</div>
-      <nav class="holo-nav">
-        <a href="#nexus">NEXUS</a>
-        <a href="#specimens">SPECIMENS</a>
-        <a href="#timeline">TIMELINE</a>
-        <a href="#theories">THEORIES</a>
-        <a href="#vault">VAULT</a>
-      </nav>
+      <a href="#home" class="logo">📋 Titan Files</a>
+      <ul class="nav-links">
+        <li><a href="#story">The Story</a></li>
+        <li><a href="#evidence">Evidence</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#downloads">Files</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <!-- Immersive Hero Section -->
-  <section id="nexus" class="nexus-hero">
-    <div class="evidence-hologram">
-      <div class="evidence-pin" style="top: 20%; left: 15%; --rotation: 25deg;"></div>
-      <div class="evidence-pin" style="top: 40%; right: 20%; --rotation: -35deg;"></div>
-      <div class="evidence-pin" style="bottom: 30%; left: 25%; --rotation: 65deg;"></div>
-      <div class="evidence-pin" style="top: 60%; right: 35%; --rotation: -15deg;"></div>
-      <div class="evidence-pin" style="bottom: 15%; right: 15%; --rotation: 45deg;"></div>
+  <!-- Hero - Introduction -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">🔍 INVESTIGATION REPORT</span>
+      <h1>Is Attack on Titan Based on Reality?</h1>
+      <p>
+        Follow our comprehensive investigation into the striking parallels between the Attack on Titan universe 
+        and documented historical events, real locations, and scientific possibilities. 
+        Discover the evidence that suggests this "fiction" might be closer to truth than we think.
+      </p>
+      <a href="#story" class="cta-button">Begin Investigation →</a>
     </div>
-    
-    <h1 class="nexus-title">TITAN NEXUS</h1>
-    <p class="nexus-subtitle">
-      <span>QUANTUM INVESTIGATION PROTOCOL</span> • 
-      <span>ADVANCED EVIDENCE ANALYSIS</span> • 
-      <span>REALITY DECRYPTION MATRIX</span>
-    </p>
-    <p style="font-size: 1.8rem; max-width: 1100px; margin-bottom: 4rem; opacity: 0.8; font-family: 'Exo 2', sans-serif;">
-      Welcome to the most advanced detective interface ever created. Access classified quantum research, 
-      analyze interdimensional evidence, and uncover the truth behind the Titan phenomenon using 
-      state-of-the-art holographic technology.
-    </p>
-    <button class="quantum-access" onclick="document.getElementById('specimens').scrollIntoView({behavior:'smooth'})">
-      INITIATE QUANTUM SCAN
-    </button>
   </section>
 
-  <!-- Advanced Investigation Sections -->
-  <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+  <!-- Chapter 1: The Story Unfolds -->
+  <section id="story" class="story-section reveal">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2 class="section-title">The Discovery</h2>
+      <p class="section-subtitle">
+        Our investigation began when researchers noticed uncanny similarities between Attack on Titan and real-world events
+      </p>
+    </div>
 
-    <!-- Specimens Analysis -->
-    <section id="specimens" class="nexus-section reveal">
-      <div class="section-header">
-        <h2 class="section-title">SPECIMEN DATABASE</h2>
-        <p style="font-size: 1.6rem; color: rgba(255, 255, 255, 0.7); font-family: 'Exo 2', sans-serif;">
-          🔬 QUANTUM COMPARATIVE ANALYSIS: Interdimensional Giant Entities
+    <div class="story-grid">
+      <div class="story-card">
+        <span class="card-icon">🏛️</span>
+        <h3 class="card-title">The Real Shiganshina</h3>
+        <p class="card-description">
+          We discovered that Nördlingen, Germany - a medieval walled city built inside a meteor crater - 
+          matches the Attack on Titan's Shiganshina District with remarkable precision.
         </p>
+        <span class="evidence-tag verified">VERIFIED LOCATION</span>
       </div>
-      
-      <div class="holo-table-container">
-        <table class="holo-table">
-          <thead>
-            <tr>
-              <th>🧬 SPECIMEN ID</th>
-              <th>📐 DIMENSIONS</th>
-              <th>⏱️ TEMPORAL PERIOD</th>
-              <th>🔍 EVIDENCE CLASS</th>
-              <th>⚡ THREAT INDEX</th>
-              <th>🎯 STATUS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>ARGENTINOSAURUS-PRIME</strong></td>
-              <td>30-35m × 8m</td>
-              <td>CRETACEOUS ERA</td>
-              <td>FOSSIL VERIFIED</td>
-              <td>EXTINCT/ZERO</td>
-              <td>ARCHIVED</td>
-            </tr>
-            <tr>
-              <td><strong>COLOSSAL-ENTITY-001</strong></td>
-              <td>60m × 15m</td>
-              <td>PRESENT DIMENSION</td>
-              <td>EYEWITNESS/MEDIA</td>
-              <td>EXTREME/10</td>
-              <td>ACTIVE INVESTIGATION</td>
-            </tr>
-            <tr>
-              <td><strong>MEGATHERIUM-ALPHA</strong></td>
-              <td>6m × 3m</td>
-              <td>PLEISTOCENE ERA</td>
-              <td>FOSSIL VERIFIED</td>
-              <td>EXTINCT/ZERO</td>
-              <td>ARCHIVED</td>
-            </tr>
-            <tr>
-              <td><strong>NEPHILIM-COLLECTIVE</strong></td>
-              <td>3-12m VARIABLE</td>
-              <td>ANCIENT RECORDS</td>
-              <td>TEXTUAL/MYTHIC</td>
-              <td>UNKNOWN/???</td>
-              <td>CLASSIFIED</td>
-            </tr>
-            <tr>
-              <td><strong>ATTACK-TITAN-PRIME</strong></td>
-              <td>15m × 4m</td>
-              <td>PRESENT DIMENSION</td>
-              <td>MULTIPLE WITNESS</td>
-              <td>HIGH/8</td>
-              <td>ACTIVE MONITORING</td>
-            </tr>
-            <tr>
-              <td><strong>FOUNDING-ENTITY-000</strong></td>
-              <td>13m × 4m</td>
-              <td>TEMPORAL ANOMALY</td>
-              <td>DIMENSIONAL/QUANTUM</td>
-              <td>REALITY-ALTERING/∞</td>
-              <td>MAXIMUM SECURITY</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
 
-    <!-- Quantum Timeline -->
-    <section id="timeline" class="nexus-section reveal">
-      <div class="section-header">
-        <h2 class="section-title">INVESTIGATION TIMELINE</h2>
-        <p style="font-size: 1.6rem; color: rgba(255, 255, 255, 0.7); font-family: 'Exo 2', sans-serif;">
-          ⏳ CHRONOLOGICAL EVIDENCE MATRIX: Key Discoveries in Quantum Investigation
+      <div class="story-card">
+        <span class="card-icon">📜</span>
+        <h3 class="card-title">Historical Parallels</h3>
+        <p class="card-description">
+          The Eldian persecution system directly mirrors documented Holocaust events, from identification 
+          armbands to systematic oppression and propaganda campaigns.
         </p>
+        <span class="evidence-tag verified">HISTORICAL MATCH</span>
       </div>
-      
-      <div class="quantum-timeline">
-        <div class="timeline-core"></div>
-        
-        <div class="timeline-event reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-card">
-            <h3 style="color: var(--cyber-blue); font-family: 'Orbitron', monospace; margin-bottom: 1.5rem; font-size: 1.8rem;">
-              🌍 DIMENSIONAL ANCHOR: Nördlingen Crater
-            </h3>
-            <p><strong>Evidence Classification:</strong> GEOGRAPHIC QUANTUM MATCH</p>
-            <p><strong>Analysis:</strong> Medieval fortress constructed within 15-million-year-old meteor impact site demonstrates perfect architectural correlation with Shiganshina District. Crater geometry suggests extraterrestrial intervention protocol.</p>
-            <p><strong>Quantum Credibility:</strong> ⭐⭐⭐⭐⭐ VERIFIED REALITY ANCHOR</p>
-          </div>
-        </div>
-        
-        <div class="timeline-event reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-card">
-            <h3 style="color: var(--danger-red); font-family: 'Orbitron', monospace; margin-bottom: 1.5rem; font-size: 1.8rem;">
-              ⚡ SYSTEMATIC OPPRESSION PROTOCOL
-            </h3>
-            <p><strong>Evidence Classification:</strong> HISTORICAL PATTERN RECOGNITION</p>
-            <p><strong>Analysis:</strong> Eldian identification system demonstrates 1:1 correlation with documented persecution methodologies. Armband classifications, ghetto segregation, and propaganda patterns show quantum-level precision matching.</p>
-            <p><strong>Quantum Credibility:</strong> ⭐⭐⭐⭐⭐ VERIFIED HISTORICAL ECHO</p>
-          </div>
-        </div>
-        
-        <div class="timeline-event reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-card">
-            <h3 style="color: var(--electric-purple); font-family: 'Orbitron', monospace; margin-bottom: 1.5rem; font-size: 1.8rem;">
-              🧠 CREATOR QUANTUM TESTIMONY
-            </h3>
-            <p><strong>Evidence Classification:</strong> PRIMARY SOURCE QUANTUM DATA</p>
-            <p><strong>Analysis:</strong> Subject Hajime Isayama demonstrates quantum entanglement with suppressed dimensional memories. Dream-state access to parallel timeline information confirmed through creative output analysis.</p>
-            <p><strong>Quantum Credibility:</strong> ⭐⭐⭐⭐ QUANTUM RESONANCE DETECTED</p>
-          </div>
-        </div>
-        
-        <div class="timeline-event reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-card">
-            <h3 style="color: var(--hologram-gold); font-family: 'Orbitron', monospace; margin-bottom: 1.5rem; font-size: 1.8rem;">
-              🛸 ANCIENT INTERVENTION HYPOTHESIS
-            </h3>
-            <p><strong>Evidence Classification:</strong> QUANTUM SPECULATION MATRIX</p>
-            <p><strong>Analysis:</strong> Advanced biotechnology signatures detected in Titan physiology. Pyramid construction anomalies suggest same civilization responsible for genetic engineering protocols. Memory suppression technology explains collective dimensional amnesia.</p>
-            <p><strong>Quantum Credibility:</strong> ⭐⭐⭐ PROBABILITY MATRIX ACTIVE</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Advanced Theories Section -->
-    <section id="theories" class="nexus-section reveal">
-      <div class="section-header">
-        <h2 class="section-title">QUANTUM THEORIES</h2>
-        <p style="font-size: 1.6rem; color: rgba(255, 255, 255, 0.7); font-family: 'Exo 2', sans-serif;">
-          🧪 CLASSIFIED HYPOTHESES: Advanced Dimensional Engineering Protocols
+      <div class="story-card">
+        <span class="card-icon">🧬</span>
+        <h3 class="card-title">Giant Possibilities</h3>
+        <p class="card-description">
+          Modern genetic engineering proves that creating large humanoid beings is theoretically possible. 
+          Ancient myths worldwide speak of giants - what if they were real?
         </p>
+        <span class="evidence-tag investigating">UNDER INVESTIGATION</span>
       </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 4rem; margin: 4rem 0;">
-        <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(138, 43, 226, 0.1)); border: 3px solid var(--cyber-blue); border-radius: 25px; padding: 3rem; transform: perspective(800px) rotateY(-3deg); transition: all 0.6s ease;">
-          <h3 style="color: var(--cyber-blue); font-family: 'Orbitron', monospace; margin-bottom: 2rem; font-size: 2rem;">
-            🧬 GENETIC WARFARE MATRIX
-          </h3>
-          <p><strong>Hypothesis:</strong> Advanced civilization deployed Titans as quantum biological weapons using interdimensional genetic engineering protocols.</p>
-          <p><strong>Supporting Data:</strong> Modern CRISPR technology validates genetic modification capabilities. Titan anatomy exhibits non-natural design signatures consistent with artificial construction.</p>
-          <p><strong>Quantum Probability:</strong> <span style="color: var(--neon-green); font-weight: bold;">87.3%</span></p>
-        </div>
-        
-        <div style="background: linear-gradient(135deg, rgba(255, 7, 58, 0.15), rgba(255, 20, 147, 0.1)); border: 3px solid var(--danger-red); border-radius: 25px; padding: 3rem; transform: perspective(800px) rotateY(3deg); transition: all 0.6s ease;">
-          <h3 style="color: var(--danger-red); font-family: 'Orbitron', monospace; margin-bottom: 2rem; font-size: 2rem;">
-            🏺 PYRAMID CONNECTION PROTOCOL
-          </h3>
-          <p><strong>Hypothesis:</strong> Pyramid-building entities deployed same quantum technology for Titan engineering projects across multiple dimensional timelines.</p>
-          <p><strong>Supporting Data:</strong> Architectural precision of ancient monuments indicates lost quantum construction technology. Göbekli Tepe temporal anomalies suggest prehistoric advanced civilization.</p>
-          <p><strong>Quantum Probability:</strong> <span style="color: var(--neon-green); font-weight: bold;">78.6%</span></p>
-        </div>
-        
-        <div style="background: linear-gradient(135deg, rgba(57, 255, 20, 0.15), rgba(255, 215, 0, 0.1)); border: 3px solid var(--neon-green); border-radius: 25px; padding: 3rem; transform: perspective(800px) rotateY(-2deg); transition: all 0.6s ease;">
-          <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; margin-bottom: 2rem; font-size: 2rem;">
-            🧠 MEMORY SUPPRESSION ENGINE
-          </h3>
-          <p><strong>Hypothesis:</strong> Collective human consciousness underwent quantum memory erasure to suppress Titan-related dimensional awareness.</p>
-          <p><strong>Supporting Data:</strong> Founding Titan memory manipulation capabilities demonstrate advanced neural interface technology. Historical amnesia patterns suggest artificial memory modification protocols.</p>
-          <p><strong>Quantum Probability:</strong> <span style="color: var(--neon-green); font-weight: bold;">72.4%</span></p>
-        </div>
-        
-        <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(138, 43, 226, 0.1)); border: 3px solid var(--hologram-gold); border-radius: 25px; padding: 3rem; transform: perspective(800px) rotateY(2deg); transition: all 0.6s ease;">
-          <h3 style="color: var(--hologram-gold); font-family: 'Orbitron', monospace; margin-bottom: 2rem; font-size: 2rem;">
-            💭 QUANTUM DREAM TRANSMISSION
-          </h3>
-          <p><strong>Hypothesis:</strong> Creator Isayama accessed suppressed dimensional memories through quantum consciousness entanglement during REM sleep cycles.</p>
-          <p><strong>Supporting Data:</strong> Jung's collective unconscious theory validates shared memory access. Cross-dimensional giant mythology suggests universal experience bleeding through quantum barriers.</p>
-          <p><strong>Quantum Probability:</strong> <span style="color: var(--neon-green); font-weight: bold;">65.8%</span></p>
-        </div>
-      </div>
-    </section>
 
-    <!-- Evidence Vault -->
-    <section id="vault" class="nexus-section reveal">
-      <div class="section-header">
-        <h2 class="section-title">QUANTUM EVIDENCE VAULT</h2>
-        <p style="font-size: 1.6rem; color: rgba(255, 255, 255, 0.7); font-family: 'Exo 2', sans-serif;">
-          🗄️ CLASSIFIED ARCHIVES: Access Restricted Quantum Research Files
+      <div class="story-card">
+        <span class="card-icon">💭</span>
+        <h3 class="card-title">Creator's Dreams</h3>
+        <p class="card-description">
+          Hajime Isayama has stated his inspiration came from dreams and "anxiety about the world." 
+          Could these be suppressed collective memories surfacing?
         </p>
+        <span class="evidence-tag investigating">PSYCHOLOGICAL STUDY</span>
       </div>
+    </div>
+  </section>
+
+  <!-- Chapter 2: The Evidence -->
+  <section id="evidence" class="story-section reveal">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2 class="section-title">Examining the Evidence</h2>
+      <p class="section-subtitle">
+        Let's compare the giants of our world with those from Attack on Titan
+      </p>
+    </div>
+
+    <div class="evidence-table">
+      <div class="table-header">
+        <h3>📊 Comparative Analysis: Real Giants vs Attack on Titan</h3>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Specimen</th>
+            <th>Height</th>
+            <th>Time Period</th>
+            <th>Evidence Source</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Argentinosaurus</strong></td>
+            <td>30-35m</td>
+            <td>Cretaceous Period</td>
+            <td>Fossil Record</td>
+            <td><span class="evidence-tag verified">Verified</span></td>
+          </tr>
+          <tr>
+            <td><strong>Colossal Titan</strong></td>
+            <td>60m</td>
+            <td>Present Day (?)</td>
+            <td>Eyewitness Accounts</td>
+            <td><span class="evidence-tag investigating">Investigating</span></td>
+          </tr>
+          <tr>
+            <td><strong>Megatherium</strong></td>
+            <td>6m</td>
+            <td>Ice Age</td>
+            <td>Fossil Record</td>
+            <td><span class="evidence-tag verified">Verified</span></td>
+          </tr>
+          <tr>
+            <td><strong>Biblical Nephilim</strong></td>
+            <td>3-12m</td>
+            <td>Ancient Times</td>
+            <td>Religious Texts</td>
+            <td><span class="evidence-tag classified">Disputed</span></td>
+          </tr>
+          <tr>
+            <td><strong>Attack Titan</strong></td>
+            <td>15m</td>
+            <td>Present Day (?)</td>
+            <td>Multiple Sources</td>
+            <td><span class="evidence-tag investigating">Investigating</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-card">
+        <span class="card-icon">🔬</span>
+        <h3 class="card-title">Scientific Possibility</h3>
+        <p class="card-description">
+          <strong>Genetic Engineering:</strong> CRISPR technology shows we can modify organisms at the genetic level. 
+          Advanced civilizations could theoretically create giant humanoids.
+        </p>
+        <span class="evidence-tag investigating">THEORETICAL</span>
+      </div>
+
+      <div class="story-card">
+        <span class="card-icon">🏺</span>
+        <h3 class="card-title">Ancient Evidence</h3>
+        <p class="card-description">
+          <strong>Pyramid Mystery:</strong> The precision of ancient monuments suggests lost advanced technology. 
+          The same builders could have had biotechnology capabilities.
+        </p>
+        <span class="evidence-tag investigating">CIRCUMSTANTIAL</span>
+      </div>
+
+      <div class="story-card">
+        <span class="card-icon">🧠</span>
+        <h3 class="card-title">Memory Suppression</h3>
+        <p class="card-description">
+          <strong>Collective Amnesia:</strong> The Founding Titan's memory manipulation parallels documented 
+          cases of mass memory alteration and information suppression.
+        </p>
+        <span class="evidence-tag investigating">PSYCHOLOGICAL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 3: Timeline -->
+  <section id="timeline" class="story-section reveal">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2 class="section-title">Investigation Timeline</h2>
+      <p class="section-subtitle">
+        Key discoveries in our research journey
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Discovery #1</div>
+          <h3 class="timeline-title">🌍 Geographic Match Found</h3>
+          <p class="timeline-description">
+            Researchers discovered Nördlingen, Germany - a perfectly preserved medieval walled city built within 
+            a 15-million-year-old meteor crater. The layout matches Shiganshina District exactly.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Discovery #2</div>
+          <h3 class="timeline-title">📚 Historical Documentation</h3>
+          <p class="timeline-description">
+            Analysis revealed systematic parallels between Eldian persecution and Holocaust documentation. 
+            Armbands, ghettos, and propaganda methods show 1:1 correlation.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Discovery #3</div>
+          <h3 class="timeline-title">🎨 Creator Testimony</h3>
+          <p class="timeline-description">
+            Hajime Isayama admitted drawing inspiration from WWII films, dreams, and personal anxieties. 
+            Psychological analysis suggests possible access to collective unconscious memories.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-date">Theory #4</div>
+          <h3 class="timeline-title">🛸 Ancient Technology Hypothesis</h3>
+          <p class="timeline-description">
+            Cross-referencing pyramid construction precision with modern genetic engineering capabilities 
+            suggests advanced ancient civilizations could have created giants.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 4: Downloads -->
+  <section id="downloads" class="story-section reveal">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2 class="section-title">Research Files</h2>
+      <p class="section-subtitle">
+        Download our complete investigation documentation
+      </p>
+    </div>
+
+    <div class="download-section">
+      <h3 style="color: var(--accent-gold); margin-bottom: 2rem; font-family: 'Crimson Pro', serif;">
+        📁 Complete Investigation Archive
+      </h3>
       
-      <div class="evidence-vault">
-        <div class="evidence-container">
-          <span class="evidence-icon" style="color: var(--cyber-blue);">📊</span>
-          <h3 class="evidence-title">QUANTUM RESEARCH MATRIX</h3>
-          <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
-            50,000-word interdimensional analysis with quantum forensic evidence, witness testimonies from multiple timelines, and advanced scientific methodology. Classification: COSMIC TOP SECRET.
-          </p>
-          <button class="quantum-download" onclick="alert('🔒 QUANTUM ACCESS INITIATED\n📊 Downloading: Complete Research Matrix (PDF)\n📁 Size: 15.7MB\n🔐 Clearance: QUANTUM DETECTIVE\n⚡ Encryption: AES-512')">
-            QUANTUM ACCESS
-          </button>
+      <div class="download-grid">
+        <div class="download-card">
+          <div class="download-icon">📄</div>
+          <h4 class="download-title">Full Research Report</h4>
+          <p class="download-size">Complete 15,000-word analysis • PDF Format</p>
+          <a href="#" class="download-btn" onclick="alert('📄 Downloading Complete Research Report...\nSize: 2.4MB\nFormat: PDF\nPages: 47')">
+            Download PDF
+          </a>
         </div>
-        
-        <div class="evidence-container">
-          <span class="evidence-icon" style="color: var(--electric-purple);">🧬</span>
-          <h3 class="evidence-title">DIMENSIONAL DATABASE</h3>
-          <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
-            Advanced quantum CSV archives containing interdimensional correlations, temporal anomaly data, and comparative reality analysis. Raw investigation data for quantum verification protocols.
-          </p>
-          <button class="quantum-download" onclick="alert('🔒 QUANTUM ACCESS INITIATED\n🧬 Downloading: Dimensional Database (CSV)\n📁 Size: 8.4MB\n🔐 Clearance: QUANTUM ANALYST\n⚡ Encryption: QUANTUM-256')">
-            QUANTUM ACCESS
-          </button>
+
+        <div class="download-card">
+          <div class="download-icon">📊</div>
+          <h4 class="download-title">Evidence Database</h4>
+          <p class="download-size">Structured data files • CSV Format</p>
+          <a href="#" class="download-btn" onclick="alert('📊 Downloading Evidence Database...\nSize: 1.8MB\nFormat: CSV\nFiles: 3 datasets')">
+            Download CSV
+          </a>
         </div>
-        
-        <div class="evidence-container">
-          <span class="evidence-icon" style="color: var(--hologram-gold);">🎯</span>
-          <h3 class="evidence-title">WITNESS TESTIMONIES</h3>
-          <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
-            Compiled quantum interviews and dimensional consciousness statements from Subject Isayama. Primary source documentation with quantum authentication certificates and timeline verification.
-          </p>
-          <button class="quantum-download" onclick="alert('🔒 QUANTUM ACCESS INITIATED\n🎯 Downloading: Witness Testimonies (TXT)\n📁 Size: 3.2MB\n🔐 Clearance: QUANTUM INVESTIGATOR\n⚡ Encryption: DIMENSIONAL-128')">
-            QUANTUM ACCESS
-          </button>
+
+        <div class="download-card">
+          <div class="download-icon">🗺️</div>
+          <h4 class="download-title">Location Maps</h4>
+          <p class="download-size">Geographic comparisons • High Resolution</p>
+          <a href="#" class="download-btn" onclick="alert('🗺️ Downloading Location Maps...\nSize: 12.7MB\nFormat: ZIP\nImages: 24 maps')">
+            Download Maps
+          </a>
         </div>
-        
-        <div class="evidence-container">
-          <span class="evidence-icon" style="color: var(--danger-red);">🗺️</span>
-          <h3 class="evidence-title">QUANTUM GEOGRAPHIC INTEL</h3>
-          <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
-            Ultra-high-resolution dimensional maps, satellite quantum imagery, and interdimensional architectural comparisons between reality anchors and reported Titan territorial zones.
-          </p>
-          <button class="quantum-download" onclick="alert('🔒 QUANTUM ACCESS INITIATED\n🗺️ Downloading: Geographic Intelligence (ZIP)\n📁 Size: 47.3MB\n🔐 Clearance: QUANTUM FIELD AGENT\n⚡ Encryption: REALITY-512')">
-            QUANTUM ACCESS
-          </button>
+
+        <div class="download-card">
+          <div class="download-icon">🎯</div>
+          <h4 class="download-title">Creator Interviews</h4>
+          <p class="download-size">Transcripts & analysis • Text Format</p>
+          <a href="#" class="download-btn" onclick="alert('🎯 Downloading Creator Interviews...\nSize: 892KB\nFormat: TXT\nInterviews: 12 sources')">
+            Download TXT
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
-
-  <!-- Quantum Footer -->
-  <footer class="quantum-footer">
-    <h3 class="footer-title">🕵️‍♂️ TITAN NEXUS QUANTUM BUREAU</h3>
-    <p style="font-size: 1.4rem; opacity: 0.9; max-width: 800px; margin: 0 auto 2rem auto; font-family: 'Exo 2', sans-serif;">
-      INTERDIMENSIONAL INVESTIGATION UNIT • QUANTUM ESTABLISHED 2025 • REALITY VERIFICATION DIVISION
-    </p>
-    <p style="opacity: 0.7; font-size: 1.1rem; margin-bottom: 1rem;">
-      ⚠️ QUANTUM WARNING: This investigation contains sensitive interdimensional material. Handle with appropriate quantum clearance level.
-    </p>
-    <p style="opacity: 0.5; font-size: 1rem; font-family: 'Share Tech Mono', monospace; color: var(--cyber-blue);">
-      CASE STATUS: QUANTUM ACTIVE • LAST UPDATED: AUGUST 2025 • NEXT REVIEW: CLASSIFIED TEMPORAL ANOMALY
-    </p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>📋 Titan Investigation Bureau</h3>
+      <p>Independent Research • Evidence-Based Analysis • Academic Standards</p>
+      <p>Investigation completed August 2025 • For educational purposes</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+        This investigation examines fictional parallels with historical events for analytical purposes
+      </p>
+    </div>
   </footer>
 
   <script>
-    // Matrix Digital Rain Effect
-    function createMatrixRain() {
-      const matrixRain = document.getElementById('matrixRain');
-      const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      const columnCount = Math.floor(window.innerWidth / 20);
-      
-      for (let i = 0; i < columnCount; i++) {
-        const column = document.createElement('div');
-        column.className = 'matrix-column';
-        column.style.left = i * 20 + 'px';
-        column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        column.style.animationDelay = Math.random() * 2 + 's';
-        
-        let columnText = '';
-        for (let j = 0; j < 20; j++) {
-          columnText += chars.charAt(Math.floor(Math.random() * chars.length)) + '\n';
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
-        column.textContent = columnText;
-        
-        matrixRain.appendChild(column);
-      }
-    }
+      });
+    });
 
-    // Advanced Quantum Particle System
-    function createQuantumParticles() {
-      const particlesContainer = document.getElementById('quantumParticles');
-      const particleCount = window.innerWidth < 768 ? 30 : 60;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'quantum-particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.width = Math.random() * 6 + 3 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.animationDelay = Math.random() * 8 + 's';
-        particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
-        
-        const colors = [
-          'var(--cyber-blue)', 
-          'var(--electric-purple)', 
-          'var(--hologram-gold)', 
-          'var(--neon-green)',
-          'var(--danger-red)',
-          'var(--plasma-pink)'
-        ];
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-        particle.style.boxShadow = `0 0 20px ${colors[Math.floor(Math.random() * colors.length)]}`;
-        
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Advanced Scroll Reveal System
-    function quantumReveal() {
+    // Scroll reveal animation
+    function revealOnScroll() {
       const reveals = document.querySelectorAll('.reveal');
-      const timelineEvents = document.querySelectorAll('.timeline-event');
-      const windowHeight = window.innerHeight;
-
-      reveals.forEach((reveal, index) => {
-        const elementTop = reveal.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 150) {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      
+      reveals.forEach((element, index) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
           setTimeout(() => {
-            reveal.classList.add('active');
+            element.classList.add('active');
+          }, index * 200);
+        }
+      });
+
+      timelineItems.forEach((item, index) => {
+        const itemTop = item.getBoundingClientRect().top;
+        if (itemTop < window.innerHeight - 100) {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+            item.style.animationDelay = `${index * 0.3}s`;
           }, index * 300);
         }
       });
-
-      timelineEvents.forEach((event, index) => {
-        const elementTop = event.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-          setTimeout(() => {
-            event.classList.add('active');
-          }, index * 400);
-        }
-      });
     }
 
-    // Quantum Typewriter Effect
-    function quantumTypewriter() {
-      const subtitle = document.querySelector('.nexus-subtitle');
-      const text = subtitle.textContent;
-      subtitle.innerHTML = '';
+    // Header background change on scroll
+    function updateHeader() {
+      const header = document.querySelector('.nav-header');
+      const scrolled = window.scrollY;
       
-      for (let i = 0; i < text.length; i++) {
-        const span = document.createElement('span');
-        span.textContent = text[i];
-        span.style.animationDelay = (i * 0.05) + 's';
-        subtitle.appendChild(span);
+      if (scrolled > 100) {
+        header.style.background = 'rgba(26, 35, 50, 0.98)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+      } else {
+        header.style.background = 'rgba(26, 35, 50, 0.95)';
+        header.style.boxShadow = 'none';
       }
     }
 
-    // Advanced 3D Mouse Tracking
-    function quantumMouseTracking() {
-      document.addEventListener('mousemove', (e) => {
-        const cards = document.querySelectorAll('.nexus-section, .evidence-container, .timeline-card');
-        const mouseX = (e.clientX / window.innerWidth) - 0.5;
-        const mouseY = (e.clientY / window.innerHeight) - 0.5;
-        
-        cards.forEach(card => {
-          const rect = card.getBoundingClientRect();
-          const cardX = (rect.left + rect.width / 2) / window.innerWidth - 0.5;
-          const cardY = (rect.top + rect.height / 2) / window.innerHeight - 0.5;
-          
-          const distanceX = (mouseX - cardX) * 20;
-          const distanceY = (mouseY - cardY) * 20;
-          
-          card.style.transform = `
-            perspective(1000px) 
-            rotateY(${distanceX}deg) 
-            rotateX(${-distanceY}deg) 
-            translateZ(10px)
-          `;
-        });
-      });
-    }
-
-    // Quantum Navigation
-    function quantumNavigation() {
-      document.querySelectorAll('.holo-nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-    }
-
-    // Enhanced Table Interactions
-    function quantumTableEffects() {
-      document.querySelectorAll('.holo-table tr').forEach(row => {
+    // Enhanced table interactions
+    function enhanceTableInteractions() {
+      document.querySelectorAll('tr').forEach(row => {
         row.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateX(20px) scale(1.03) perspective(500px) rotateY(2deg)';
-          this.style.zIndex = '100';
-          this.style.boxShadow = '0 20px 40px rgba(0, 255, 255, 0.3)';
+          this.style.transform = 'translateX(8px)';
         });
         
         row.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateX(0px) scale(1) perspective(500px) rotateY(0deg)';
-          this.style.zIndex = '1';
-          this.style.boxShadow = 'none';
+          this.style.transform = 'translateX(0)';
         });
       });
     }
 
-    // Quantum Header Effects
-    function quantumHeaderEffects() {
-      let lastScrollY = window.scrollY;
-      
-      window.addEventListener('scroll', () => {
-        const header = document.querySelector('.holo-header');
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 100) {
-          header.style.background = `
-            linear-gradient(135deg, 
-              rgba(0, 0, 0, 0.98) 0%, 
-              rgba(44, 62, 80, 0.95) 50%, 
-              rgba(26, 26, 26, 0.98) 100%
-            )
-          `;
-          header.style.boxShadow = `
-            0 15px 50px rgba(0, 0, 0, 0.9),
-            0 0 80px rgba(0, 255, 255, 0.4)
-          `;
-        } else {
-          header.style.background = `
-            linear-gradient(135deg, 
-              rgba(0, 0, 0, 0.95) 0%, 
-              rgba(44, 62, 80, 0.9) 50%, 
-              rgba(26, 26, 26, 0.95) 100%
-            )
-          `;
-          header.style.boxShadow = `
-            0 10px 40px rgba(0, 0, 0, 0.8),
-            0 0 60px rgba(0, 255, 255, 0.3)
-          `;
-        }
-        
-        lastScrollY = currentScrollY;
-      });
-    }
-
-    // Initialize Quantum Systems
+    // Initialize all functions
     window.addEventListener('load', () => {
-      createMatrixRain();
-      createQuantumParticles();
-      quantumTypewriter();
-      quantumReveal();
-      quantumMouseTracking();
-      quantumNavigation();
-      quantumTableEffects();
-      quantumHeaderEffects();
-      
-      setTimeout(() => {
-        quantumReveal();
-      }, 1000);
+      revealOnScroll();
+      enhanceTableInteractions();
     });
 
-    window.addEventListener('scroll', quantumReveal);
-    window.addEventListener('resize', () => {
-      document.getElementById('matrixRain').innerHTML = '';
-      document.getElementById('quantumParticles').innerHTML = '';
-      createMatrixRain();
-      createQuantumParticles();
+    window.addEventListener('scroll', () => {
+      revealOnScroll();
+      updateHeader();
     });
 
-    // Quantum Console Message
+    // Simple console message
     console.log(`
-    🕵️‍♂️ QUANTUM DETECTIVE CONSOLE ACTIVATED
-    ═══════════════════════════════════════
-    🔍 Investigation Status: QUANTUM ACTIVE
-    📊 Evidence Matrix: FULLY LOADED
-    🧬 Dimensional Analysis: MAXIMUM POWER
-    ⚡ Quantum Encryption: REALITY-SECURED
-    🎯 Clearance Level: INTERDIMENSIONAL
-    ═══════════════════════════════════════
-    Welcome to the Titan Nexus Quantum Bureau
-    Reality is stranger than fiction...
+    📋 Titan Investigation Portal Loaded
+    ═══════════════════════════════════
+    🔍 Status: Research Complete
+    📊 Evidence: Analyzed
+    📄 Files: Ready for Download
+    ═══════════════════════════════════
     `);
-
-    // Quantum Easter Eggs
-    let konamiCode = [];
-    const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
-    
-    document.addEventListener('keydown', (e) => {
-      konamiCode.push(e.code);
-      if (konamiCode.length > konamiSequence.length) {
-        konamiCode.shift();
-      }
-      
-      if (konamiCode.join('') === konamiSequence.join('')) {
-        document.body.style.filter = 'hue-rotate(180deg) saturate(200%)';
-        alert('🔓 QUANTUM CHEAT CODE ACTIVATED!\n⚡ Reality Matrix Inverted!\n🌈 Dimensional Colors Shifted!');
-        setTimeout(() => {
-          document.body.style.filter = 'none';
-        }, 10000);
-      }
-    });
   </script>
 </body>
 </html>
